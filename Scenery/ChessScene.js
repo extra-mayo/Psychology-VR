@@ -17,10 +17,10 @@ function ChessScene(world){
     world.add(this.ground);
 
     this.snowArray = [];
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 100; i++) {
         var snow = new Snow();
         this.snowArray.push(snow);
-        world.add(snow.box);
+        world.add(snow.snow);
     }
 
     this.container = new Container3D({x:0, y:0, z:0});
@@ -40,10 +40,10 @@ function ChessScene(world){
     this.queen.moveSpeed = 0.03;
     this.queen.move = function(queen){
         // console.log("1: ", queen.get);
-        console.log("2: ", this.queen);
-        this.queen.setY(this.queen.getY() + this.queen.moveSpeed);
-        if (this.queen.getY() > 4 || this.queen.getY() < 1){
-            this.queen.moveSpeed *= -1;
+        // console.log("2: ", this.queen);
+        this.setY(this.getY() + this.moveSpeed);
+        if (this.getY() > 4 || this.getY() < 1){
+            this.moveSpeed *= -1;
         }
     };
     this.container.addChild(this.queen);

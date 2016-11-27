@@ -14,12 +14,16 @@
 		<!-- AFrameP5 library -->
 		<script language="javascript" type="text/javascript" src="libraries/aframep5.js"></script>
 
+		<!-- KFrame library-->
+		<script language="javascript" type="text/javascript" src="libraries/kframe.min.js"></script>
+
 		<!-- P5 Sketch -->
 		<script language="javascript" type="text/javascript" src="sketch.js"></script>
 
 		<!-- Scenery-Related JS -->
 		<script language="javascript" type="text/javascript" src="Scenery/Snow.js"></script>
 		<script language="javascript" type="text/javascript" src="Scenery/ChessScene.js"></script>
+		<script language="javascript" type="text/javascript" src="Scenery/Trees.js"></script>
 
 		<!-- custom styles -->
 		<style> 
@@ -50,13 +54,20 @@
 			<a-assets id="VRAssets">
 
 				<img src="images/stone_andesite_smooth.png" id="stone"></asset-item>
-				<a-asset src="images/king.dae" id="kingModel" /></a-asset>
-				<a-asset src="images/queen.dae" id="queenModel" /></a-asset>
-				<a-asset src="images/pawn.dae" id="pawnModel" /></a-asset>
+				<a-asset src="models/king.dae" id="kingModel" /></a-asset>
+				<a-asset src="models/queen.dae" id="queenModel" /></a-asset>
+				<a-asset src="models/pawn.dae" id="pawnModel" /></a-asset>
+				<a-asset src="models/3Tree/model.dae" id="treeModel"></a-asset>
+				<!--<a-asset src="models/3Tree/model.dae" id="3TreeModel" /></a-asset>-->
+
+            <!--<a-asset id="deadTreeObj" src="models/deadTree/DeadTree.obj"></a-asset>-->
+                <!--<a-asset id="deadTreeMtl" src="models/deadTree/DeadTree.mtl"></a-asset>-->
 
 			</a-assets>
-			<a-sky id="sky" src="images/stars.jpg" color="rgb(255,255,255)"></a-sky>
-			  
+			<!--<a-sky id="sky" src="images/stars.jpg"></a-sky>-->
+
+			<a-sky id="sky" color="#000000"></a-sky>
+			<a-mountain color="grey"></a-mountain>
 	    </a-scene>		
 		
 	</body>

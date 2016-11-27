@@ -1,7 +1,7 @@
 /**
  * Created by Zhi Jian Zheng on 11/26/2016.
  */
-function Snow() {
+function Snow(x, y, z) {
 
     // //randomly generate x, z
     this.x = random(-13, 14);
@@ -18,10 +18,13 @@ function Snow() {
     this.g = 255;
     this.b = 255;
 
-    this.box = new Box({
+    this.snow = new Sphere({
         x: this.x,
         y: this.y,
         z: this.z,
+        scaleX: 0.05,
+        scaleZ: 0.05,
+        scaleY: 0.05,
         width: this.width,
         height: this.height,
         depth: this.depth,
@@ -48,17 +51,17 @@ function Snow() {
         this.zOffset += 0.01;
 
         // set the position of our box (using the 'nudge' method)
-        this.box.nudge(xMovement, yMovement, zMovement);
+        this.snow.nudge(xMovement, yMovement, zMovement);
 
         // if we get too small we need to indicate that this box is now no longer viable
-        if (this.box.y < 0) {
-            this.box.y = 10;
+        if (this.snow.y < 0) {
+            this.snow.y = 10;
         }
-        if (this.box.z < -13 || this.box.z > 13.5) {
-            this.box.z = random(-13, 13);
+        if (this.snow.z < -13 || this.snow.z > 13.5) {
+            this.snow.z = random(-13, 13);
         }
-        if (this.box.x < -13 || this.box.x > 14){
-            this.box.x = random(-13, 14);
+        if (this.snow.x < -13 || this.snow.x > 14){
+            this.snow.x = random(-13, 14);
         }
 
     }

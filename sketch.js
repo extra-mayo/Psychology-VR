@@ -16,6 +16,8 @@ function setup() {
 
     scene = new ChessScene(world);
 
+    var tree = new threeTrees(0, 0);
+    world.add(tree.tree);
 
 }
 
