@@ -1,5 +1,5 @@
 /**
- * Created by Zhi Jian Zheng on 11/26/2016.
+ * Created by Zhi Jian Zheng on 11/27/2016.
  */
 function Snow(x, y, z) {
 
@@ -62,6 +62,59 @@ function Snow(x, y, z) {
         }
         if (this.snow.x < -13 || this.snow.x > 14){
             this.snow.x = random(-13, 14);
+        }
+
+    }
+}
+
+function Rain(x, y, z){
+    // //randomly generate x, z
+    this.x = random(-13, 14);
+    this.y = random(10);
+    this.z = random(-13, 13);
+
+    this.width = 0.05;
+    this.depth = 0.05;
+    this.height = 0.5;
+
+    this.r = 191;
+    this.g = 191;
+    this.b = 191;
+
+    this.rain = new Box({
+        x: this.x,
+        y: this.y,
+        z: this.z,
+
+        width: this.width,
+        height: this.height,
+        depth: this.depth,
+
+        red: this.r, green: this.g, blue: this.b,
+
+        metalness: 0.8,
+
+        rotationY: 10
+
+    });
+
+    // function to move our box
+    this.move = function () {
+        // compute how the particle should move
+        // the particle should always move up by a small amount
+        var yMovement = -0.4;
+
+        this.rain.nudge(0, yMovement, 0);
+
+        // if we get too small we need to indicate that this box is now no longer viable
+        if (this.rain.y < 0) {
+            this.rain.y = 10;
+        }
+        if (this.rain.z < -13 || this.rain.z > 13.5) {
+            this.rain.z = random(-13, 13);
+        }
+        if (this.rain.x < -13 || this.rain.x > 14){
+            this.rain.x = random(-13, 14);
         }
 
     }

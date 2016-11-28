@@ -21,9 +21,9 @@
 		<script language="javascript" type="text/javascript" src="sketch.js"></script>
 
 		<!-- Scenery-Related JS -->
-		<script language="javascript" type="text/javascript" src="Scenery/Snow.js"></script>
 		<script language="javascript" type="text/javascript" src="Scenery/ChessScene.js"></script>
-		<script language="javascript" type="text/javascript" src="Scenery/Trees.js"></script>
+		<script language="javascript" type="text/javascript" src="Scenery/Weather.js"></script>
+		<script language="javascript" type="text/javascript" src="Scenery/Environment.js"></script>
 
 		<!-- custom styles -->
 		<style> 
@@ -53,12 +53,18 @@
 	      
 			<a-assets id="VRAssets">
 
+
+				<img src="images/TreeTexture/logOne.png" id="treeLog"></asset-item>
+				<img src="images/TreeTexture/leafOne.png" id="treeLeaf"></asset-item>
 				<img src="images/stone_andesite_smooth.png" id="stone"></asset-item>
+
+
 				<a-asset src="models/king.dae" id="kingModel" /></a-asset>
 				<a-asset src="models/queen.dae" id="queenModel" /></a-asset>
 				<a-asset src="models/pawn.dae" id="pawnModel" /></a-asset>
 				<a-asset src="models/3Tree/model.dae" id="treeModel"></a-asset>
-				<!--<a-asset src="models/3Tree/model.dae" id="3TreeModel" /></a-asset>-->
+				<a-asset src="models/deadTree/model.dae" id="deadTreeModel" /></a-asset>
+
 
             <!--<a-asset id="deadTreeObj" src="models/deadTree/DeadTree.obj"></a-asset>-->
                 <!--<a-asset id="deadTreeMtl" src="models/deadTree/DeadTree.mtl"></a-asset>-->

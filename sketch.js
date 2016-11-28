@@ -5,7 +5,7 @@ var scene;
 function preload(){
     sound = loadSound('images/woosh.mp3');
 }
-
+var tree;
 function setup() {
     // no canvas needed
     noCanvas();
@@ -15,17 +15,22 @@ function setup() {
     world = new World('VRScene');
 
     scene = new ChessScene(world);
+    //
+    // var tree = new DAE({
+    //    asset: "deadTreeModel"
+    // });
+    // world.add(tree);
 
-    var tree = new threeTrees(0, 0);
-    world.add(tree.tree);
+    tree = new TwoD_Trees(0, 0, 5);
 
 }
 
 function draw() {
-    // if (mouseIsPressed || touchIsDown) {
-    //     world.moveUserForward(0.1);
-    // }
+    if (mouseIsPressed || touchIsDown) {
+        world.moveUserForward(0.1);
+    }
     scene.move();
+    tree.move();
 
 }
 
