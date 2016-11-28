@@ -24,6 +24,7 @@
 		<script language="javascript" type="text/javascript" src="Scenery/ChessScene.js"></script>
 		<script language="javascript" type="text/javascript" src="Scenery/Weather.js"></script>
 		<script language="javascript" type="text/javascript" src="Scenery/Environment.js"></script>
+		<script language="javascript" type="text/javascript" src="Scenery/ground.js"></script>
 
 		<!-- custom styles -->
 		<style> 
@@ -34,10 +35,10 @@
 		</style>
 	</head>
 	<body>
-		
+
 		<!-- container to hold our VR scene - make sure to give this element an ID of 'VRScene' -->	
 	    <a-scene id="VRScene">
-
+			<!--<a-scene fog="type: linear; near: 2; far: 25; color: white">-->
 	    	<!-- 
 		       The 'a-assets' container is used to load in any external artwork you may want to use as "textures" for your objects.
 		       Ensure that this element has an ID of 'VRAssets'
@@ -64,9 +65,10 @@
 				<a-asset src="models/pawn.dae" id="pawnModel" /></a-asset>
 				<a-asset src="models/3Tree/model.dae" id="treeModel"></a-asset>
 				<a-asset src="models/deadTree/model.dae" id="deadTreeModel" /></a-asset>
+				<a-asset src="models/2DTree/trees.dae" id="testTree" /></a-asset>
 
 
-            <!--<a-asset id="deadTreeObj" src="models/deadTree/DeadTree.obj"></a-asset>-->
+				<!--<a-asset id="deadTreeObj" src="models/deadTree/DeadTree.obj"></a-asset>-->
                 <!--<a-asset id="deadTreeMtl" src="models/deadTree/DeadTree.mtl"></a-asset>-->
 
 			</a-assets>
@@ -74,7 +76,9 @@
 
 			<a-sky id="sky" color="#000000"></a-sky>
 			<a-mountain color="grey"></a-mountain>
-	    </a-scene>		
+			<a-entity ground></a-entity>
+	    </a-scene>
+
 		
 	</body>
 </html>

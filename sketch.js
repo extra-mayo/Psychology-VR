@@ -21,7 +21,10 @@ function setup() {
     // });
     // world.add(tree);
 
-    tree = new TwoD_Trees(0, 0, 5);
+    tree = new DAE({
+        asset: "testTree"
+    })
+    world.add(tree);
 
 }
 
@@ -30,7 +33,7 @@ function draw() {
         world.moveUserForward(0.1);
     }
     scene.move();
-    tree.move();
+    // tree.move();
 
 }
 
