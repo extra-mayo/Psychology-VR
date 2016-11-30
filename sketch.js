@@ -48,9 +48,9 @@ function setup() {
 }
 
 function draw() {
-    // if (mouseIsPressed || touchIsDown) {
-    //     world.moveUserForward(0.1);
-    // }
+    if (mouseIsPressed || touchIsDown) {
+        world.moveUserForward(0.1);
+    }
     // scene.move();
     // tree.move();
     bubble.move();
