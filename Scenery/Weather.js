@@ -28,6 +28,7 @@ function Snow(x, y, z) {
         width: this.width,
         height: this.height,
         depth: this.depth,
+        opacity: 0.9,
         red: this.r, green: this.g, blue: this.b
     });
 

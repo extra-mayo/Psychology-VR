@@ -16,22 +16,22 @@ function ChessScene(world){
     // add the plane to our world
     world.add(this.ground);
 
-    // this.snowArray = [];
-    // for (var i = 0; i < 100; i++) {
-    //     var snow = new Snow();
-    //     this.snowArray.push(snow);
-    //     world.add(snow.snow);
-    // }
-
-    this.rainArray = [];
-    for (var i = 0; i < 100; i++){
-        var rain = new Rain();
-        this.rainArray.push(rain);
-        world.add(rain.rain);
+    this.snowArray = [];
+    for (var i = 0; i < 200; i++) {
+        var snow = new Snow();
+        this.snowArray.push(snow);
+        world.add(snow.snow);
     }
 
+    // this.rainArray = [];
+    // for (var i = 0; i < 100; i++){
+    //     var rain = new Rain();
+    //     this.rainArray.push(rain);
+    //     world.add(rain.rain);
+    // }
+
     this.container = new Container3D({x:0, y:0, z:0});
-    world.add(this.container);
+    // world.add(this.container);
 
     this.queen = new DAE({
         x: 0,
@@ -89,8 +89,8 @@ function ChessScene(world){
 
 
     this.move = function(){
-        for (var i = 0; i < this.rainArray.length; i++) {
-            this.rainArray[i].move();
+        for (var i = 0; i < this.snowArray.length; i++) {
+            this.snowArray[i].move();
         }
         this.container.spinY(1);
         // console.log(world.getUserPosition());
