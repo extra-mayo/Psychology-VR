@@ -283,6 +283,45 @@ function Dodecahedron(opts) {
 }
 
 
+function Dodecahedron(opts) {
+	// store desired options
+	setEntityOptions(opts, this);
+
+	// store what kind of primitive shape this entity is
+	this.prim   = 'dodecahedron';
+
+	// setup geometry parameters
+	if (!('radius' in opts)) {
+		opts.radius = 1;
+	}
+	this.radius = opts.radius;
+
+	// set geometry
+	setGeometry(this);
+
+	// set material
+	processMaterial(this);
+	setMaterial(this);
+
+	// set scale
+	setScale(this.opts, this);
+	
+	// set position
+	setPosition(this.opts, this);
+
+	// set rotation
+	setRotation(this.opts, this);
+
+	// set visibility	
+	setVisibility(this.opts, this);
+
+	// set click handler
+	setClickHandler(this);
+	
+	// init common setters / getters
+	initializerSettersAndGetters(this);
+}
+
 
 function Octahedron(opts) {
 	// store desired options
@@ -570,7 +609,7 @@ function Ring(opts) {
 
 	// setup geometry parameters
 	if (!('radiusInner' in opts)) {
-		opts.radiusInner = 0.5;
+		opts.radiusInner = 1;
 	}
 	this.radiusInner = opts.radiusInner;
 
@@ -1322,8 +1361,6 @@ function initializerSettersAndGetters(entity) {
 			setMaterial(this);
 		}
 	}
-	
-	// need to add repeatY zzz
 
 	entity.getAsset = function() {
 		if ('asset' in this) {
