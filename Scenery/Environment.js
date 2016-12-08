@@ -19,6 +19,26 @@ function threeTrees(x, z) {
     });
 }
 
+function deadPineTree(x, z, scaleY){
+    this.x = random(-x/2 + 1, x/2-1);
+    this.y = 0;
+    this.z = random(-z/2 + 1, z/2 - 1);
+
+    this.scaleY = scaleY;
+
+
+    this.tree = new DAE({
+        x: this.x,
+        y: this.y,
+        z: this.z,
+        scaleY: scaleY,
+        asset: "deadPineTree"
+    });
+
+
+
+}
+
 //2DTree object works better with height = 5!
 function TwoD_Trees(x, z, height) {
     this.x = x;

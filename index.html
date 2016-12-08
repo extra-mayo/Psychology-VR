@@ -1,55 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Final Project</title>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		
+		<!-- P5 libraries -->
+		<script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+		<script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+		<script language="javascript" type="text/javascript" src="libraries/p5.sound.js"></script>
+		
+		<!-- A-Frame libraries -->
+		<script language="javascript" type="text/javascript" src="libraries/aframe.min.js"></script>
 
-        <!-- P5 libraries -->
-        <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
-        <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+		<!-- AFrameP5 library -->
+		<script language="javascript" type="text/javascript" src="libraries/aframep5.js"></script>
 
-        <!-- A-Frame libraries -->
-        <script language="javascript" type="text/javascript" src="libraries/aframe.min.js"></script>
+		<!-- KFrame library-->
+		<script language="javascript" type="text/javascript" src="libraries/kframe.min.js"></script>
 
-        <!-- AFrameP5 library -->
-        <script language="javascript" type="text/javascript" src="libraries/aframep5.js"></script>
+		<!-- P5 Sketch -->
+		<script language="javascript" type="text/javascript" src="sketch.js"></script>
 
-        <!-- P5 Sketch -->
-        <script language="javascript" type="text/javascript" src="sketch.js"></script>
+        <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
 
-        <!-- Scenery-Related JS -->
-        <script language="javascript" type="text/javascript" src="butterflies.js"></script>
+		<!-- Scenery-Related JS -->
+        <!--<script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>-->
 
-        <!-- custom styles -->
-        <style>
-            body {
-                padding: 0;
-                margin: 0;
-            }
-        </style>
+		<script language="javascript" type="text/javascript" src="Scenery/WinterForestScene.js"></script>
+		<script language="javascript" type="text/javascript" src="Scenery/ChessScene.js"></script>
+		<script language="javascript" type="text/javascript" src="Scenery/Weather.js"></script>
+		<script language="javascript" type="text/javascript" src="Scenery/Environment.js"></script>
+		<script language="javascript" type="text/javascript" src="Scenery/ground.js"></script>
+		<script language="javascript" type="text/javascript" src="InteractiveObjects/Bubbles.js"></script>
 
-    </head>
-    <body>
-        <a-scene id="VRScene">
-            <a-assets id="VRAssets">
-                <img src="img/sky.jpg" id="sky">
-                <img src="img/grass.jpg" id="grass">
-                <img src="img/colourful.jpg" id="butterfly-tex">
-                <img src="img/fitness.jpg" id="wish-pic">
+		<!-- custom styles -->
+		<style> 
+			body {
+				padding: 0; 
+				margin: 0;
+			} 
+		</style>
+	</head>
+	<body>
 
-                <a-asset id="woodland" src="img/woodland.dae"></a-asset>
-                <a-asset id="singleTree" src="img/single-tree.dae"></a-asset>
+    <!--<a-scene fog="color: #444" animation__fog="property: fog.color; to: #000; dur: 2000">-->
+    <!--</a-scene>-->
 
-                <a-asset id="voxelTree-mtl" src="img/voxel-tree.mtl"></a-asset>
-                <a-asset id="voxelTree-obj" src="img/voxel-tree.obj"></a-asset>
-                <a-asset id="rock-mtl" src="img/rock.mtl"></a-asset>
-                <a-asset id="rock-obj" src="img/rock.obj"></a-asset>
+	<!-- container to hold our VR scene - make sure to give this element an ID of 'VRScene' -->
+	    <a-scene id="VRScene" fog="type: exponential; density: 0.05; color: white">
 
-            </a-assets>
+			<!--fog="type: exponential; density: 0.05; color: white"-->
+	    	<!-- 
+		       The 'a-assets' container is used to load in any external artwork you may want to use as "textures" for your objects.
+		       Ensure that this element has an ID of 'VRAssets'
+		       
+		       Textures can be loaded by creating a new 'a-asset' tag inside of the 'a-assets' container.
+		       When doing this you will need to make sure to give your textures a unique ID - 
+		       this will be used by p5 to create new objects.
+		       
+		       Example:
+		       
+		       <img id="ITEM_ID_GOES_HERE" src="images/gold_block.png"></asset-item>		       
+			-->
+            <!--<a-ttimer text="0"></a-ttimer>-->
+	      
+			<a-assets id="VRAssets" >
 
-            <a-sky id="theSky" src="#sky" color="rgb(255, 255, 255)"></a-sky>
-        </a-scene>
+                <!--.setAttribute("material", "fog: false"-->
+
+				<img src="images/TreeTexture/logOne.png" id="treeLog"></asset-item>
+				<img src="images/TreeTexture/leafOne.png" id="treeLeaf"></asset-item>
+				<img src="images/stone_andesite_smooth.png" id="stone"></asset-item>
+				<img src="images/snowTexture.jpg" id="snow"></a-assets>
 
 
-    </body>
+				<a-asset src="models/king.dae" id="kingModel" /></a-asset>
+				<a-asset src="models/queen.dae" id="queenModel" /></a-asset>
+				<a-asset src="models/pawn.dae" id="pawnModel" /></a-asset>
+				<a-asset src="models/3Tree/model.dae" id="treeModel"></a-asset>
+				<a-asset src="models/deadPineTree/model.dae" id="deadPineTree" /></a-asset>
+				<a-asset src="models/fallenDeadTree/model.dae" id="fallenDeadTree" /></a-asset>
+				<a-asset src="models/2DTree/trees.dae" id="testTree" /></a-asset>
+				<a-asset src="models/Chicken/model.dae" id="chicken" /></a-asset>
+				<a-asset src="models/deadWinterTree/model.dae" id="deadWinterTree" /></a-asset>
+                <a-asset src="models/waterBottle/model.dae" id="waterBottle"></a-asset>
+
+
+				<a-asset src="models/snowman/CreepySnowmanMedPoly.mtl" id="snowmanMtl"></a-asset>
+				<a-asset src="models/snowman/CreepySnowmanMedPoly.obj" id="snowmanObj"></a-asset>
+
+
+				<!--<a-asset id="deadTreeObj" src="models/deadTree/DeadTree.obj"></a-asset>-->
+                <!--<a-asset id="deadTreeMtl" src="models/deadTree/DeadTree.mtl"></a-asset>-->
+
+			</a-assets>
+
+			<!--<a-sky id="sky" src="images/stars.jpg"></a-sky>-->
+
+            <!--<a-entity collada-model="#deadPineTree" ></a-entity>-->
+			<!--<a-sky id="sky" color="#000000"></a-sky>-->
+			<!--<a-mountain color="grey"></a-mountain>-->
+
+            <a-sky id="sky" color="#000000" material="fog: false"  ></a-sky>
+
+
+
+			<!--<a-entity ground ></a-entity>-->
+	    </a-scene>
+
+		
+	</body>
 </html>

@@ -1,12 +1,12 @@
 /**
  * Created by Zhi Jian Zheng on 11/27/2016.
  */
-function Snow(x, y, z) {
+function Snow(x, z) {
 
     // //randomly generate x, z
-    this.x = random(-13, 14);
+    this.x = random(-x/2 + 1, x/2-1);
     this.y = random(10);
-    this.z = random(-13, 13);
+    this.z = random(-z/2 + 1, z/2 - 1);
 
     // console.log(this.x, this.y, this.z);
 
@@ -58,11 +58,12 @@ function Snow(x, y, z) {
         if (this.snow.y < 0) {
             this.snow.y = 10;
         }
-        if (this.snow.z < -13 || this.snow.z > 13.5) {
-            this.snow.z = random(-13, 13);
+
+        if (this.snow.z < -z/2 || this.snow.z > z/2) {
+            this.snow.z = random(-z/2 + 1, z/2 - 1);
         }
-        if (this.snow.x < -13 || this.snow.x > 14){
-            this.snow.x = random(-13, 14);
+        if (this.snow.x < -x/2 || this.snow.x > x/2){
+            this.snow.x = random(-x/2 + 1, x/2 -1);
         }
 
     }
