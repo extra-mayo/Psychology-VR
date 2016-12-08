@@ -1869,6 +1869,7 @@ function Camera() {
 	// construct an entity holder
 	this.holder = document.createElement('a-entity');
 	this.holder.setAttribute('camera', '');
+	this.holder.setAttribute('id', 'screenCamera');
 	
 	// set position of camera
 	this.x = 0;

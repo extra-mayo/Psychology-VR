@@ -20,12 +20,12 @@ function WinterForest(world) {
 
     // console.log("ground", this.ground.tag);
 
-    this.snowArray = [];
-    for (let i = 0; i < 300; i++) {
-        let snow = new Snow(this.width, this.height);
-        this.snowArray.push(snow);
-        world.add(snow.snow);
-    }
+    // this.snowArray = [];
+    // for (let i = 0; i < 300; i++) {
+    //     let snow = new Snow(this.width, this.height);
+    //     this.snowArray.push(snow);
+    //     world.add(snow.snow);
+    // }
 
     let snowman = new OBJ({
         asset: 'snowmanObj',
@@ -40,70 +40,70 @@ function WinterForest(world) {
     });
     // world.add(snowman);
 
-    this.deadPineTreeArray = [];
-    for (let x = 0; x < 5; x++) {
-        let pineTree = new deadPineTree(this.width, this.height, 0.5);
-        this.deadPineTreeArray.push(pineTree);
-        world.add(pineTree.tree);
-    }
+    // this.deadPineTreeArray = [];
+    // for (let x = 0; x < 5; x++) {
+    //     let pineTree = new deadPineTree(this.width, this.height, 0.5);
+    //     this.deadPineTreeArray.push(pineTree);
+    //     world.add(pineTree.tree);
+    // }
 
     this.display = function () {
 
-        for (let i = 0; i < this.snowArray.length; i++){
-            this.snowArray[i].move();
-            let userPos = world.getUserPosition();
-            let distance = dist(this.snowArray[i].x, this.snowArray[i].z, userPos.x, userPos.z);
-            //IF WITHIN DISTANCE, ADD IT TO THE WORLD
-            if (distance < 39){
-                for (let x = 0; x < world.scene.childNodes.length; x++){
-                    if (world.scene.childNodes[x] == this.snowArray[i].snow.tag){
-                        const temp = world.scene.childNodes[x];
-                        if (temp.getAttribute("visible") == false){
-                            temp.setAttribute("visible", "true");
-                        }
-                    }
-                }
-            }
-            //OTHERWISE, REMOVE IT FROM WORLD.
-            else {
-                for (let x = 0; x < world.scene.childNodes.length; x++){
-                    if (world.scene.childNodes[x] == this.snowArray[i].snow.tag){
-                        const temp = world.scene.childNodes[x];
-                        if (temp.getAttribute("visible") == true){
-                            temp.setAttribute("visible", "false");
-                        }
-                    }
-                }
-            }
-        }
+        // for (let i = 0; i < this.snowArray.length; i++){
+        //     this.snowArray[i].move();
+        //     let userPos = world.getUserPosition();
+        //     let distance = dist(this.snowArray[i].x, this.snowArray[i].z, userPos.x, userPos.z);
+        //     //IF WITHIN DISTANCE, ADD IT TO THE WORLD
+        //     if (distance < 39){
+        //         for (let x = 0; x < world.scene.childNodes.length; x++){
+        //             if (world.scene.childNodes[x] == this.snowArray[i].snow.tag){
+        //                 const temp = world.scene.childNodes[x];
+        //                 if (temp.getAttribute("visible") == false){
+        //                     temp.setAttribute("visible", "true");
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     //OTHERWISE, REMOVE IT FROM WORLD.
+        //     else {
+        //         for (let x = 0; x < world.scene.childNodes.length; x++){
+        //             if (world.scene.childNodes[x] == this.snowArray[i].snow.tag){
+        //                 const temp = world.scene.childNodes[x];
+        //                 if (temp.getAttribute("visible") == true){
+        //                     temp.setAttribute("visible", "false");
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
 
-        for (let i = 0; i < this.deadPineTreeArray.length; i++) {
-            let userPos = world.getUserPosition();
-            let distance = dist(this.deadPineTreeArray[i].x, this.deadPineTreeArray[i].z, userPos.x, userPos.z);
-            if (distance < 39) {
-                for (let x = 0; x < world.scene.childNodes.length; x++){
-                    if (world.scene.childNodes[x] == this.deadPineTreeArray[i].tree.tag){
-                        const temp = world.scene.childNodes[x];
-                        if (temp.getAttribute("visible") == false){
-                            temp.setAttribute("visible", "true");
-                        }
-                    }
-                }
-            }
-            //OTHERWISE, REMOVE IT FROM WORLD.
-            else {
-                for (let x = 0; x < world.scene.childNodes.length; x++){
-                    if (world.scene.childNodes[x] == this.deadPineTreeArray[i].tree.tag){
-                        const temp = world.scene.childNodes[x];
-                        if (temp.getAttribute("visible") == true){
-                            temp.setAttribute("visible", "false");
-                        }
-                    }
-                }
-            }
-
-        }
+        // for (let i = 0; i < this.deadPineTreeArray.length; i++) {
+        //     let userPos = world.getUserPosition();
+        //     let distance = dist(this.deadPineTreeArray[i].x, this.deadPineTreeArray[i].z, userPos.x, userPos.z);
+        //     if (distance < 39) {
+        //         for (let x = 0; x < world.scene.childNodes.length; x++){
+        //             if (world.scene.childNodes[x] == this.deadPineTreeArray[i].tree.tag){
+        //                 const temp = world.scene.childNodes[x];
+        //                 if (temp.getAttribute("visible") == false){
+        //                     temp.setAttribute("visible", "true");
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     //OTHERWISE, REMOVE IT FROM WORLD.
+        //     else {
+        //         for (let x = 0; x < world.scene.childNodes.length; x++){
+        //             if (world.scene.childNodes[x] == this.deadPineTreeArray[i].tree.tag){
+        //                 const temp = world.scene.childNodes[x];
+        //                 if (temp.getAttribute("visible") == true){
+        //                     temp.setAttribute("visible", "false");
+        //                 }
+        //             }
+        //         }
+        //     }
+        //
+        // }
 
         // console.log("world scene entity total: " + world.scene.childNodes.length);
     }

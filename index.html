@@ -15,12 +15,19 @@
 		<script language="javascript" type="text/javascript" src="libraries/aframep5.js"></script>
 
 		<!-- KFrame library-->
-		<script language="javascript" type="text/javascript" src="libraries/kframe.min.js"></script>
+		<!--<script language="javascript" type="text/javascript" src="libraries/kframe.min.js"></script>-->
 
 		<!-- P5 Sketch -->
 		<script language="javascript" type="text/javascript" src="sketch.js"></script>
 
-        <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+        <!--<script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>-->
+
+		<!--<script language="javascript" type="text/javascript" src="libraries/aframe-particle-system-component.js"></script>-->
+
+
+        <!--<script language="javascript" type="text/javascript" src="libraries/aframe-ui-modal-component.js"></script>-->
+
+        <script language="javascript" type="text/javascript" src="libraries/aframe-bmfont-text-component.js"></script>
 
 		<!-- Scenery-Related JS -->
         <!--<script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>-->
@@ -31,37 +38,35 @@
 		<script language="javascript" type="text/javascript" src="Scenery/Environment.js"></script>
 		<script language="javascript" type="text/javascript" src="Scenery/ground.js"></script>
 		<script language="javascript" type="text/javascript" src="InteractiveObjects/Bubbles.js"></script>
+        <script language="javascript" type="text/javascript" src="Scenery/userInfo.js"></script>
 
 		<!-- custom styles -->
 		<style> 
 			body {
 				padding: 0; 
 				margin: 0;
-			} 
+			}
+
+            #userData {
+
+                /*float: right;*/
+                position: absolute;
+                right: 0px;
+                color: white;
+                z-index: 1;
+            }
 		</style>
 	</head>
 	<body>
 
     <!--<a-scene fog="color: #444" animation__fog="property: fog.color; to: #000; dur: 2000">-->
     <!--</a-scene>-->
-
+	<!--<a-scene stats></a-scene>-->
 	<!-- container to hold our VR scene - make sure to give this element an ID of 'VRScene' -->
+
+
 	    <a-scene id="VRScene" fog="type: exponential; density: 0.05; color: white">
 
-			<!--fog="type: exponential; density: 0.05; color: white"-->
-	    	<!-- 
-		       The 'a-assets' container is used to load in any external artwork you may want to use as "textures" for your objects.
-		       Ensure that this element has an ID of 'VRAssets'
-		       
-		       Textures can be loaded by creating a new 'a-asset' tag inside of the 'a-assets' container.
-		       When doing this you will need to make sure to give your textures a unique ID - 
-		       this will be used by p5 to create new objects.
-		       
-		       Example:
-		       
-		       <img id="ITEM_ID_GOES_HERE" src="images/gold_block.png"></asset-item>		       
-			-->
-            <!--<a-ttimer text="0"></a-ttimer>-->
 	      
 			<a-assets id="VRAssets" >
 
@@ -88,10 +93,6 @@
 				<a-asset src="models/snowman/CreepySnowmanMedPoly.mtl" id="snowmanMtl"></a-asset>
 				<a-asset src="models/snowman/CreepySnowmanMedPoly.obj" id="snowmanObj"></a-asset>
 
-
-				<!--<a-asset id="deadTreeObj" src="models/deadTree/DeadTree.obj"></a-asset>-->
-                <!--<a-asset id="deadTreeMtl" src="models/deadTree/DeadTree.mtl"></a-asset>-->
-
 			</a-assets>
 
 			<!--<a-sky id="sky" src="images/stars.jpg"></a-sky>-->
@@ -100,12 +101,16 @@
 			<!--<a-sky id="sky" color="#000000"></a-sky>-->
 			<!--<a-mountain color="grey"></a-mountain>-->
 
-            <a-sky id="sky" color="#000000" material="fog: false"  ></a-sky>
+            <a-sky id="sky" color="#FFFFFF" material="fog: false"  ></a-sky>
 
 
-
+			<!--<a-entity position="0 2 0" particle-system="preset: rain; particleCount: 10000; size: 1; opacity: 1; maxParticleCount: 10000"></a-entity>-->
 			<!--<a-entity ground ></a-entity>-->
-	    </a-scene>
+            <!--<a-camera id="camera"></a-camera>-->
+            <a-entity bmfont-text="text: Hello World;" scale="10 10 10" look-at="camera"></a-entity>
+
+
+	       </a-scene>
 
 		
 	</body>

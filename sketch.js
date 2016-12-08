@@ -32,19 +32,9 @@ function setup() {
     //
     // world.add(tree);
 
-    interface = new Plane({
-        x: 0,
-        y: 0,
-        z: 0,
+    var userInfo = new UserInfo();
 
-        scaleX: 3,
-        scaleY: 3,
-        red: 100, green: 100, blue: 100,
-    });
-
-    interface.tag.setAttribute("text", "text: holla bitches");
-
-    world.add(interface);
+    // world.add(interface);
 
     // world.setUserPosition(10, 10, 10);
 
@@ -97,7 +87,7 @@ function draw() {
     // }
 
 
-    scene.display();
+    // scene.display();
     // tree.move();
     // console.log(world.getUserPosition());
 
