@@ -17,7 +17,7 @@ function setup(){
      * Created by skyzn on 11/29/2016.
      */
 
-    createCanvas(500, 500);
+    // createCanvas(500, 500);
 
     textSize(20);
     text("world", 20, 20, 20, 20);
