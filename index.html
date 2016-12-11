@@ -22,7 +22,7 @@
 
         <!--<script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>-->
 
-		<!--<script language="javascript" type="text/javascript" src="libraries/aframe-particle-system-component.js"></script>-->
+		<script language="javascript" type="text/javascript" src="libraries/aframe-particle-system-component.js"></script>
 
 
         <!--<script language="javascript" type="text/javascript" src="libraries/aframe-ui-modal-component.js"></script>-->
@@ -34,12 +34,13 @@
 
 		<script language="javascript" type="text/javascript" src="Scenery/WinterForestScene.js"></script>
 		<script language="javascript" type="text/javascript" src="Scenery/ChessScene.js"></script>
-		<script language="javascript" type="text/javascript" src="Scenery/Weather.js"></script>
-		<script language="javascript" type="text/javascript" src="Scenery/Environment.js"></script>
-		<script language="javascript" type="text/javascript" src="Scenery/ground.js"></script>
+		<script language="javascript" type="text/javascript" src="SceneryMISC/Weather.js"></script>
+		<script language="javascript" type="text/javascript" src="SceneryMISC/Environment.js"></script>
+		<script language="javascript" type="text/javascript" src="SceneryMISC/ground.js"></script>
 		<script language="javascript" type="text/javascript" src="InteractiveObjects/Bubbles.js"></script>
-        <script language="javascript" type="text/javascript" src="Player/userInfo.js"></script>
+        <script language="javascript" type="text/javascript" src="Player/UserStats.js"></script>
 		<script language="javascript" type="text/javascript" src="Player/Player.js"></script>
+
 		<!-- custom styles -->
 		<style> 
 			body {
@@ -65,17 +66,24 @@
 	<!-- container to hold our VR scene - make sure to give this element an ID of 'VRScene' -->
 
 
-	    <a-scene id="VRScene" fog="type: exponential; density: 0.05; color: white">
-
-	      
-			<a-assets id="VRAssets" >
+	    <!--<a-scene id="VRScene" stats>-->
+			<a-scene id="VRScene" fog="type: exponential; density: 0.1; color: #e6e7e8" stats>
+			<!--fog="type: exponential; density: 0.05; color: white"-->
+			<asset-item id="VRAssets">
 
                 <!--.setAttribute("material", "fog: false"-->
 
-				<img src="images/TreeTexture/logOne.png" id="treeLog"></asset-item>
-				<img src="images/TreeTexture/leafOne.png" id="treeLeaf"></asset-item>
-				<img src="images/stone_andesite_smooth.png" id="stone"></asset-item>
-				<img src="images/snowTexture.jpg" id="snow"></a-assets>
+				<!-- USER INTERFACE IMAGES-->
+                <img src="images/hunger.png" id="hungerImage">
+                <img src="images/thirst.png" id="thirstImage">
+                <img src="images/emptyhunger.png" id="emptyHungerImage">
+                <img src="images/emptythirst.png" id="emptyThirstImage">
+
+                <img src="images/TreeTexture/logOne.png" id="treeLog">
+				<img src="images/TreeTexture/leafOne.png" id="treeLeaf">
+				<img src="images/stone_andesite_smooth.png" id="stone">
+				<img src="images/snowTexture.jpg" id="snow">
+				<img src="libraries/images/dot.png" id="dotTexture">
 
 
 				<a-asset src="models/king.dae" id="kingModel" /></a-asset>
@@ -83,34 +91,46 @@
 				<a-asset src="models/pawn.dae" id="pawnModel" /></a-asset>
 				<a-asset src="models/3Tree/model.dae" id="treeModel"></a-asset>
 				<a-asset src="models/deadPineTree/model.dae" id="deadPineTree" /></a-asset>
-				<a-asset src="models/fallenDeadTree/model.dae" id="fallenDeadTree" /></a-asset>
+
 				<a-asset src="models/2DTree/trees.dae" id="testTree" /></a-asset>
 				<a-asset src="models/Chicken/model.dae" id="chicken" /></a-asset>
+
 				<a-asset src="models/deadWinterTree/model.dae" id="deadWinterTree" /></a-asset>
+
+                <a-asset src="models/lowPolyDeadTreeColored/low-poly-dead-tree.dae" id="deadTreeLowPoly"></a-asset>
+                <a-asset src="models/lowPolyDeadTree/low-poly-dead-tree.dae" id="deadTreeLowPolyWhite"></a-asset>
+
+
+
                 <a-asset src="models/waterBottle/model.dae" id="waterBottle"></a-asset>
 
 
-				<a-asset src="models/snowman/CreepySnowmanMedPoly.mtl" id="snowmanMtl"></a-asset>
-				<a-asset src="models/snowman/CreepySnowmanMedPoly.obj" id="snowmanObj"></a-asset>
+				<a-asset src="models/rocks/Rock1/Rock1.dae" id="rock"></a-asset>
 
-			</a-assets>
+                <a-asset src="models/xmasTree/CartoonTree.dae" id="xmas"></a-asset>
 
-			<!--<a-sky id="sky" src="images/stars.jpg"></a-sky>-->
+                <a-asset src="models/tower/castle-tower.dae" id="tower"></a-asset>
+
+
+
+			</asset-item>
+
+			<a-sky id="sky" src="images/stars2.jpg"></a-sky>
 
             <!--<a-entity collada-model="#deadPineTree" ></a-entity>-->
 			<!--<a-sky id="sky" color="#000000"></a-sky>-->
 			<!--<a-mountain color="grey"></a-mountain>-->
 
-            <a-sky id="sky" color="#FFFFFF" material="fog: false"  ></a-sky>
+            <!--<a-sky id="sky" color="#000000" material="fog: true"></a-sky>-->
+			<!--material="fog: false"-->
 
-
-			<!--<a-entity position="0 2 0" particle-system="preset: rain; particleCount: 10000; size: 1; opacity: 1; maxParticleCount: 10000"></a-entity>-->
+			<!--<a-entity position="0 5 0" particle-system="preset: snow; particleCount: 10000; size: 1; opacity: 1; maxParticleCount: 10000; color: #143945"></a-entity>-->
 			<!--<a-entity ground ></a-entity>-->
             <!--<a-camera id="camera"></a-camera>-->
-            <a-entity bmfont-text="text: Hello World;" scale="10 10 10" look-at="camera"></a-entity>
+            <!--<a-entity bmfont-text="text: Hello World;" scale="10 10 10" look-at="camera"></a-entity>-->
 
+		</a-scene>
 
-	       </a-scene>
 
 		
 	</body>
