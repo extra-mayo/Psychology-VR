@@ -12,7 +12,7 @@ function Player(){
     this.hunger = 3;
     this.thirst = 3;
     this.tiredness = 3;
-    this.wish = 3;
+    this.wish = 0;
 
     // this.update() = function(){
     //
@@ -30,7 +30,7 @@ function Player(){
             this.z = random(-20, 20);
             world.setUserPosition(this.x, this.y, this.z);
         }
-        this.updateUserStats();
+        // this.updateUserStats();
 
     };
 

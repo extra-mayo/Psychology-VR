@@ -1,14 +1,14 @@
-function Bubble(model, x, y, z, offSetX, offSetY, offSetZ, scaleSize, latency) {
+function Bubble(model, type, x, y, z, offSetX, offSetY, offSetZ, scaleSize, latency) {
+    this.type = type;
     this.container = new Container3D({
         x:x, y:y, z:z,
-        visible:false
+        visible:true
     });
-    world.add(this.container);
 
     this.bubble = new Sphere({
         x:0, y:0, z:0,
         opacity:0.3,
-        red:0, green:0, blue:0,
+        red:255, green:255, blue:255,
         radius: 1.5
     });
     this.object = new DAE({
@@ -22,29 +22,50 @@ function Bubble(model, x, y, z, offSetX, offSetY, offSetZ, scaleSize, latency) {
     this.container.addChild(this.bubble);
     this.container.addChild(this.object);
 
-    this.status = "off1";
+    this.chaseStatus = false;
 
+
+    //-1 = user isn't within location
+    //0 = haven't caught up to user
+    //1 = caught up to user
     this.updateStatus = function() {
-        if(this.status == "off1" && millis()/1000 - startTime > latency && Math.abs(userPosition.x - this.container.x) <= 30 && Math.abs(userPosition.z - this.container.z) <= 30){
-            this.status = "on";
-            this.container.tag.setAttribute('visible', 'true');
-        }
+        let userPosition = world.getUserPosition();
 
-        if(Math.abs(userPosition.x - this.container.x) <= 0.2) {
-            this.status = "off2";
-            this.container.tag.setAttribute('visible', 'false');
-            if(model == 'bubble-hunger-object') {
-                hungerLevel = 100;
-            }
-            else if(model == 'bubble-hunger-object') {
-                thirstLevel = 100;
-            }
+        var distance = dist(userPosition.x, userPosition.z, this.container.getX(), this.container.getZ());
+        // console.log(distance);
+        // console.log(this.chaseStatus);
+        if(!this.chaseStatus && millis()/1000 > latency && distance <= 30){
+
+            this.chaseStatus = true;
+            this.container.tag.setAttribute('visible', 'true');
+            return -1;
         }
+        if (this.chaseStatus && distance > 3){
+            // console.log("PLEASE TRACK ME");
+            this.trackUser();
+        }
+        else if(distance <= 3 && this.chaseStatus) {
+            this.chaseStatus = false;
+            this.container.tag.setAttribute('visible', 'false');
+            // if(type == 'bubble-hunger-object') {
+            //     hungerLevel = 100;
+            // }
+            // else if(type == 'bubble-hunger-object') {
+            //     thirstLevel = 100;
+            // }
+            // else if (type == 'goal'){
+            //     //spawn these things!
+            //
+            // }
+            return 1;
+        }
+        return 0;
+
     };
 
     this.trackUser = function() {
-        if(this.status == "on") {
-            this.container.nudge((userPosition.x - this.container.x) / 100, (userPosition.y - this.container.y) / 100, (userPosition.z - this.container.z) / 100);
-        }
+        let userPosition = world.getUserPosition();
+        this.container.nudge((userPosition.x - this.container.getX()) / 100, (userPosition.y - this.container.getY()) / 100, (userPosition.z - this.container.getZ()) / 100);
+
     };
 }

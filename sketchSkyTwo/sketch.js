@@ -64,7 +64,7 @@ function setup(){
     }
 
 
-    bubble1 = new Bubble('bubble-hunger-object', 2, 10, 20, -3.3, -0.7, 0, 1, 10);
+    bubble1 = new Bubble('chicken', 2, 10, 20, -3.3, -0.7, 0, 1, 10);
     bubble2 = new Bubble('bubble-thirst-object', 2, 2, 35, 0.1, -0.2, 0.25, 0.05, 5);
 
 

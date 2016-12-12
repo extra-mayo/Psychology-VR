@@ -37,7 +37,7 @@
 		<script language="javascript" type="text/javascript" src="SceneryMISC/Weather.js"></script>
 		<script language="javascript" type="text/javascript" src="SceneryMISC/Environment.js"></script>
 		<script language="javascript" type="text/javascript" src="SceneryMISC/ground.js"></script>
-		<script language="javascript" type="text/javascript" src="InteractiveObjects/Bubbles.js"></script>
+		<script language="javascript" type="text/javascript" src="InteractiveObjects/bubbles.js"></script>
         <script language="javascript" type="text/javascript" src="Player/UserStats.js"></script>
 		<script language="javascript" type="text/javascript" src="Player/Player.js"></script>
 
@@ -66,8 +66,8 @@
 	<!-- container to hold our VR scene - make sure to give this element an ID of 'VRScene' -->
 
 
-	    <!--<a-scene id="VRScene" stats>-->
-			<a-scene id="VRScene" fog="type: exponential; density: 0.1; color: #e6e7e8" stats>
+	    <a-scene id="VRScene" stats>
+			<!--<a-scene id="VRScene" fog="type: exponential; density: 0.1; color: #e6e7e8" stats>-->
 			<!--fog="type: exponential; density: 0.05; color: white"-->
 			<asset-item id="VRAssets">
 
@@ -76,14 +76,16 @@
 				<!-- USER INTERFACE IMAGES-->
                 <img src="images/hunger.png" id="hungerImage">
                 <img src="images/thirst.png" id="thirstImage">
+				<img src="images/wish.png" id="wishImage">
                 <img src="images/emptyhunger.png" id="emptyHungerImage">
                 <img src="images/emptythirst.png" id="emptyThirstImage">
+				<img src="images/emptywish.png" id="emptyWishImage">
 
                 <img src="images/TreeTexture/logOne.png" id="treeLog">
 				<img src="images/TreeTexture/leafOne.png" id="treeLeaf">
 				<img src="images/stone_andesite_smooth.png" id="stone">
 				<img src="images/snowTexture.jpg" id="snow">
-				<img src="libraries/images/dot.png" id="dotTexture">
+				<!--<img src="libraries/images/dot.png" id="dotTexture">-->
 
 
 				<a-asset src="models/king.dae" id="kingModel" /></a-asset>
@@ -91,6 +93,8 @@
 				<a-asset src="models/pawn.dae" id="pawnModel" /></a-asset>
 				<a-asset src="models/3Tree/model.dae" id="treeModel"></a-asset>
 				<a-asset src="models/deadPineTree/model.dae" id="deadPineTree" /></a-asset>
+				<a-asset src="models/weightBar/model.dae" id="weightBar"></a-asset>
+
 
 				<a-asset src="models/2DTree/trees.dae" id="testTree" /></a-asset>
 				<a-asset src="models/Chicken/model.dae" id="chicken" /></a-asset>
@@ -100,6 +104,7 @@
                 <a-asset src="models/lowPolyDeadTreeColored/low-poly-dead-tree.dae" id="deadTreeLowPoly"></a-asset>
                 <a-asset src="models/lowPolyDeadTree/low-poly-dead-tree.dae" id="deadTreeLowPolyWhite"></a-asset>
 
+				<a-asset src="models/Portal/model.dae" id="portal"></a-asset>
 
 
                 <a-asset src="models/waterBottle/model.dae" id="waterBottle"></a-asset>

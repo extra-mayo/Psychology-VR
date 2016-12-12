@@ -2,9 +2,7 @@ function UserInfo(player){
 
     this.hunger = player.hunger;
     this.thirst = player.thirst;
-
-    this.missingHunger = 3 - this.hunger;
-    this.missingThirst = 3 - this.thirst;
+    this.wish = player.wish;
 
     this.camera = document.querySelector("#screenCamera");
 
@@ -95,14 +93,73 @@ function UserInfo(player){
     this.wishHolder.setAttribute("position", "0.1, -0.2, -0.5");
     this.wishHolder.setAttribute("scale", "0.1, 0.1, 0.1");
 
+    this.wishOne = new Plane({
+        x: 0.18, y: -0.194, z: -0.5,
+        width: 0.025, height: 0.025,
+        asset: 'emptyWishImage',
+        transparent: true
+        // rotationX: -90, metalness: 0.25
+    });
+    this.camera.appendChild(this.wishOne.tag);
+
+    this.wishTwo = new Plane({
+        x: 0.21, y: -0.194, z: -0.5,
+        width: 0.025, height: 0.025,
+        asset: 'emptyWishImage',
+        transparent: true
+        // rotationX: -90, metalness: 0.25
+    });
+    this.camera.appendChild(this.wishTwo.tag);
+
+    this.wishThree = new Plane({
+        x: 0.24, y: -0.194, z: -0.5,
+        width: 0.025, height: 0.025,
+        asset: 'emptyWishImage',
+        transparent: true
+        // rotationX: -90, metalness: 0.25
+    });
+    this.camera.appendChild(this.wishThree.tag);
+
+    //We can either: 1) add arbitrarily, OR 2) make an actual variable to delete
+    this.wishFilledArray = [];
+
+    this.wishFilledArray.push(new Plane({
+        x: 0.18, y: -0.194, z: -0.5,
+        width: 0.025, height: 0.025,
+        asset: 'wishImage',
+        transparent: true
+        // rotationX: -90, metalness: 0.25
+    }));
+
+    this.wishFilledArray.push(new Plane({
+        x: 0.21, y: -0.194, z: -0.5,
+        width: 0.025, height: 0.025,
+        asset: 'wishImage',
+        transparent: true
+    }));
+
+    this.wishFilledArray.push(new Plane({
+        x: 0.24, y: -0.194, z: -0.5,
+        width: 0.025, height: 0.025,
+        asset: 'wishImage',
+        transparent: true
+        // rotationX: -90, metalness: 0.25
+    }));
+
+
+
+
     this.camera.appendChild(this.hungerHolder);
     this.camera.appendChild(this.thirstHolder);
     this.camera.appendChild(this.sleepHolder);
     this.camera.appendChild(this.wishHolder);
 
-    this.updateInformation = function(){
-
+    this.increaseWishCount = function(number){
+        this.wish = player.wish;
+        this.camera.appendChild(this.wishFilledArray[number-1].tag);
     }
+
+
 
 
 

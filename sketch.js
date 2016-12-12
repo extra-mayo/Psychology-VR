@@ -1,21 +1,23 @@
 // variable to hold a reference to our A-Frame world
 var world;
 var scene;
+var userInfo;
+var player;
 
 function preload() {
     sound = loadSound('images/woosh.mp3');
 }
 
-var userInfo;
-var player;
+
 
 function setup() {
     // no canvas needed
     noCanvas();
     world = new World('VRScene');
 
-    scene = new WinterForest(world);
     player = new Player();
+    scene = new WinterForest(world);
+
     userInfo = new UserInfo(player);
 
 
@@ -30,7 +32,7 @@ function draw() {
 
     scene.display();
     player.updatePosition();
-    userInfo.updateInformation();
+
 
 }
 

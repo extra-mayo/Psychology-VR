@@ -108,3 +108,72 @@ function TwoD_Trees(x, z, height) {
     }
 
 }
+
+function Portal(x, z){
+
+    this.x = random(-x/2 + 20, x/2-20);
+    this.z = random(-z/2 + 20, z/2 - 20);
+
+    this.portal = new Container3D({x:0, y:0, z:0});
+    let torus = new Torus({
+        x: this.x, y:0, z:this.z,
+        arc: 180,
+        radius: 3,
+        scaleY: 2,
+        red:163, green:163, blue:194
+    });
+    this.portal.addChild(torus);
+
+    let circleFront = new Circle({
+        x: this.x, y: 0, z: this.z,
+        radius: 3,
+        thetaStart: 0, thetaEnd: 180,
+        opacity: 0.3,
+        scaleY: 2,
+        transparent: true,
+        red: 0, green: 0, blue: 255
+    });
+    this.portal.addChild(circleFront);
+
+    let circleBack = new Circle({
+        x: this.x, y: 0, z: this.z,
+        radius: 3,
+        thetaStart: 0, thetaEnd: 180,
+        opacity: 0.3,
+        scaleY: 2,
+        rotationY: 180,
+        transparent: true,
+        red: 0, green: 0, blue: 255
+    });
+    this.portal.addChild(circleBack);
+
+    // world.add(this.portal);
+
+    //0 = NO
+    //1 = YES
+    this.checkPortalHit = function (){
+            //TODO dist formula here
+    }
+}
+
+function GoalObject(x, z){
+    this.x = random(-x/2 + 20, x/2-20);
+    this.y = 0;
+    this.z = random(-z/2 + 20, z/2 - 20);
+    this.goal = new DAE({
+        x: this.x, y: this.y, z: this.z,
+        asset: "weightBar",
+    });
+
+    this.checkHit = function(){
+        var userPos = world.getUserPosition();
+        var distance = dist(this.x, this.z, userPos.x, userPos.z);
+        console.log(distance);
+        if (distance < 3){
+            return 1;
+        }
+        return -1;
+    }
+
+
+}
