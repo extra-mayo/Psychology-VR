@@ -1,117 +1,92 @@
 <!DOCTYPE html>
-<html lang="en-us">
-	<head>
-		<meta charset="UTF-8">
-		
-		<!-- P5 libraries -->
-		<script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
-		<script language="javascript" type="text/javascript" src="../libraries/p5.dom.js"></script>
-		<script language="javascript" type="text/javascript" src="../libraries/p5.sound.js"></script>
-		
-		<!-- A-Frame libraries -->
-		<script language="javascript" type="text/javascript" src="../libraries/aframe.min.js"></script>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Final Project</title>
 
-		<!-- AFrameP5 library -->
-		<script language="javascript" type="text/javascript" src="../libraries/aframep5.js"></script>
+        <!-- P5 libraries -->
+        <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+        <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
 
-		<!-- KFrame library-->
-		<!--<script language="javascript" type="text/javascript" src="libraries/kframe.min.js"></script>-->
+        <!-- A-Frame libraries -->
+        <script language="javascript" type="text/javascript" src="libraries/aframe.min.js"></script>
 
-		<!-- P5 Sketch -->
-		<script language="javascript" type="text/javascript" src="sketch.js"></script>
+        <!-- AFrameP5 library -->
+        <script language="javascript" type="text/javascript" src="libraries/aframep5.js"></script>
 
-        <!--<script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>-->
+        <!-- P5 Sketch -->
+        <script language="javascript" type="text/javascript" src="sketch.js"></script>
 
-		<!--<script language="javascript" type="text/javascript" src="libraries/aframe-particle-system-component.js"></script>-->
+        <!-- Scenery and Interactive Objects JS -->
+        <script language="javascript" type="text/javascript" src="butterflies.js"></script>
+        <script language="javascript" type="text/javascript" src="apples.js"></script>
+        <script language="javascript" type="text/javascript" src="trees&rocks.js"></script>
+        <script language="javascript" type="text/javascript" src="bubbles.js"></script>
+        <script language="javascript" type="text/javascript" src="player.js"></script>
+        <!--<script language="javascript" type="text/javascript" src="libraries/aframe-particle-system-component.js"></script>-->
+        <!--<script language="javascript" type="text/javascript" src="libraries/aframe-particle-system-component.min.js"></script>-->
+
+        <!--Text-rendering JS-->
+        <!--<script src="libraries/aframe-text-component.js"></script>-->
+        <!--<script src="libraries/aframe-text-component.min.js"></script>-->
+        <script language="javascript" type="text/javascript" src="userInfo.js"></script>
+        <script language="javascript" type="text/javascript" src="libraries/aframe-bmfont-text-component.js"></script>
+        <script language="javascript" type="text/javascript" src="libraries/aframe-bmfont-text-component.min.js"></script>
+
+        <!--K-Frame-->
+        <script language="javascript" type="text/javascript" src="libraries/kframe.min.js"></script>
 
 
-        <!--<script language="javascript" type="text/javascript" src="libraries/aframe-ui-modal-component.js"></script>-->
-
-        <script language="javascript" type="text/javascript" src="../libraries/aframe-bmfont-text-component.js"></script>
-
-		<!-- Scenery-Related JS -->
-        <!--<script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>-->
-
-		<script language="javascript" type="text/javascript" src="../Scenery/WinterForestScene.js"></script>
-		<script language="javascript" type="text/javascript" src="../Scenery/ChessScene.js"></script>
-		<script language="javascript" type="text/javascript" src="../Scenery/Weather.js"></script>
-		<script language="javascript" type="text/javascript" src="../Scenery/Environment.js"></script>
-		<script language="javascript" type="text/javascript" src="../Scenery/ground.js"></script>
-		<script language="javascript" type="text/javascript" src="InteractiveObjects/Bubbles.js"></script>
-        <script language="javascript" type="text/javascript" src="Player/userInfo.js"></script>
-		<script language="javascript" type="text/javascript" src="../Player/Player.js"></script>
-		<!-- custom styles -->
-		<style> 
-			body {
-				padding: 0; 
-				margin: 0;
-			}
-
-            #userData {
-
-                /*float: right;*/
-                position: absolute;
-                right: 0px;
-                color: white;
-                z-index: 1;
+        <!-- custom styles -->
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
             }
-		</style>
-	</head>
-	<body>
-
-    <!--<a-scene fog="color: #444" animation__fog="property: fog.color; to: #000; dur: 2000">-->
-    <!--</a-scene>-->
-	<!--<a-scene stats></a-scene>-->
-	<!-- container to hold our VR scene - make sure to give this element an ID of 'VRScene' -->
+        </style>
 
 
-	    <a-scene id="VRScene" fog="type: exponential; density: 0.05; color: white">
+        <!--type:linear; near:5; far:100; -->
+        <!--type:exponential; density:0.03; -->
+    </head>
+    <body>
+        <a-scene id="Spring" <!--fog="type:exponential; density:0.1; color:white"-->>
+            <a-assets id="VRAssets">
+                <img src="img/sky.jpg" id="sky">
+                <img src="img/grass.jpg" id="grass">
+                <img src="img/colourful.jpg" id="butterfly-tex">
+                <img src="img/fitness.jpg" id="wish-pic">
 
-	      
-			<a-assets id="VRAssets" >
+                <!-- USER INTERFACE IMAGES-->
+                <img src="img/hunger.png" id="hungerImage">
+                <img src="img/thirst.png" id="thirstImage">
+                <img src="img/emptyhunger.png" id="emptyHungerImage">
+                <img src="img/emptythirst.png" id="emptyThirstImage">
 
-                <!--.setAttribute("material", "fog: false"-->
+                <!--Dae objects-->
+                <a-asset id="woodland" src="img/woodland.dae"></a-asset>
+                <a-asset id="singleTree" src="img/single-tree.dae"></a-asset>
+                <a-asset id="bubble-hunger-object" src="img/chicken.dae"></a-asset>
+                <a-asset id="bubble-thirst-object" src="img/waterdrop/model.dae"></a-asset>
+                <a-asset id="bubble-sleep-object" src="img/bed/model.dae"></a-asset>
+                <a-asset id="bubble-busy-object" src="img/laptop/model.dae"></a-asset>
 
-				<img src="../images/TreeTexture/logOne.png" id="treeLog"></asset-item>
-				<img src="../images/TreeTexture/leafOne.png" id="treeLeaf"></asset-item>
-				<img src="../images/stone_andesite_smooth.png" id="stone"></asset-item>
-				<img src="../images/snowTexture.jpg" id="snow"></a-assets>
-
-
-				<a-asset src="models/king.dae" id="kingModel" /></a-asset>
-				<a-asset src="models/queen.dae" id="queenModel" /></a-asset>
-				<a-asset src="models/pawn.dae" id="pawnModel" /></a-asset>
-				<a-asset src="models/3Tree/model.dae" id="treeModel"></a-asset>
-				<a-asset src="models/deadPineTree/model.dae" id="deadPineTree" /></a-asset>
-				<a-asset src="models/fallenDeadTree/model.dae" id="fallenDeadTree" /></a-asset>
-				<a-asset src="models/2DTree/trees.dae" id="testTree" /></a-asset>
-				<a-asset src="models/Chicken/model.dae" id="chicken" /></a-asset>
-				<a-asset src="models/deadWinterTree/model.dae" id="deadWinterTree" /></a-asset>
-                <a-asset src="models/waterBottle/model.dae" id="waterBottle"></a-asset>
-
-
-				<a-asset src="models/snowman/CreepySnowmanMedPoly.mtl" id="snowmanMtl"></a-asset>
-				<a-asset src="models/snowman/CreepySnowmanMedPoly.obj" id="snowmanObj"></a-asset>
-
-			</a-assets>
-
-			<!--<a-sky id="sky" src="images/stars.jpg"></a-sky>-->
-
-            <!--<a-entity collada-model="#deadPineTree" ></a-entity>-->
-			<!--<a-sky id="sky" color="#000000"></a-sky>-->
-			<!--<a-mountain color="grey"></a-mountain>-->
-
-            <a-sky id="sky" color="#FFFFFF" material="fog: false"  ></a-sky>
+                <!--OBJ objects-->
+                <a-asset id="voxelTree-mtl" src="img/voxel-tree.mtl"></a-asset>
+                <a-asset id="voxelTree-obj" src="img/voxel-tree.obj"></a-asset>
+                <a-asset id="rock-mtl" src="img/rock.mtl"></a-asset>
+                <a-asset id="rock-obj" src="img/rock.obj"></a-asset>
 
 
-			<!--<a-entity position="0 2 0" particle-system="preset: rain; particleCount: 10000; size: 1; opacity: 1; maxParticleCount: 10000"></a-entity>-->
-			<!--<a-entity ground ></a-entity>-->
-            <!--<a-camera id="camera"></a-camera>-->
-            <a-entity bmfont-text="text: Hello World;" scale="10 10 10" look-at="camera"></a-entity>
+            </a-assets>
 
 
-	       </a-scene>
+            <a-sky id="blueSky" material="src:#sky; fog:false" color="rgb(255, 255, 255)"></a-sky>
 
-		
-	</body>
+            <a-entity geometry="primitive: plane; width: 1200; height: 600" material="src: #wish-pic; fog:false" position="-100 1000 -4000"></a-entity>
+
+        </a-scene>
+
+
+    </body>
 </html>
