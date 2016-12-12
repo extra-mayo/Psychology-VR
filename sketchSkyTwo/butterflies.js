@@ -9,7 +9,7 @@ function Butterfly(x, y, z){
         x:x, y:y, z:z,
         visible:true
     });
-    world.add(this.butterflyContainer);
+    scene.add(this.butterflyContainer);
 
     this.leftWingContainer = new Container3D({
         x:0, y:0, z:-0.035,
@@ -69,21 +69,21 @@ function Butterfly(x, y, z){
 
     this.fly = function(){
 
-        var xMovement = map(noise(this.xNoiseOffset), 0, 1, -0.1, 0.1);
-        var yMovement = map(noise(this.yNoiseOffset), 0, 1, -0.1, 0.1);
-        var zMovement = map(noise(this.zNoiseOffset), 0, 1, -0.1, 0.1);
+        var xMovement = map(noise(this.xNoiseOffset), 0, 1, -0.05, 0.05);
+        var yMovement = map(noise(this.yNoiseOffset), 0, 1, -0.05, 0.05);
+        var zMovement = map(noise(this.zNoiseOffset), 0, 1, -0.05, 0.05);
 
-        if(this.butterflyContainer.y < 0 || this.butterflyContainer.y > 95 || this.butterflyContainer.x < -50 || this.butterflyContainer.x > 50 || this.butterflyContainer.z < -50 || this.butterflyContainer.z > 50){
-            this.xNoiseOffset += 100;
-            this.yNoiseOffset += 100;
-            this.zNoiseOffset += 100;
-
-            var xMovement = map(noise(this.xNoiseOffset), 0, 1, -0.1, 0.1);
-            var yMovement = map(noise(this.yNoiseOffset), 0, 1, -0.1, 0.1);
-            var zMovement = map(noise(this.zNoiseOffset), 0, 1, -0.1, 0.1);
-
-            this.butterflyContainer.nudge(xMovement, yMovement, zMovement);
-        }
+        // if(this.butterflyContainer.y < 0 || this.butterflyContainer.y > 95 || this.butterflyContainer.x < -50 || this.butterflyContainer.x > 50 || this.butterflyContainer.z < -50 || this.butterflyContainer.z > 50){
+        //     this.xNoiseOffset += 100;
+        //     this.yNoiseOffset += 100;
+        //     this.zNoiseOffset += 100;
+        //
+        //     var xMovement = map(noise(this.xNoiseOffset), 0, 1, -0.1, 0.1);
+        //     var yMovement = map(noise(this.yNoiseOffset), 0, 1, -0.1, 0.1);
+        //     var zMovement = map(noise(this.zNoiseOffset), 0, 1, -0.1, 0.1);
+        //
+        //     this.butterflyContainer.nudge(xMovement, yMovement, zMovement);
+        // }
 
         this.butterflyContainer.nudge(xMovement, yMovement, zMovement);
 
@@ -122,27 +122,3 @@ function createButterflies(num) {
         butterflyArray.push(butterfly);
     }
 }
-
-// function butterfliesSwarm(num) {
-//     ranX = random(userPosition.x-10, userPosition.x+10);
-//     ranY = random(userPosition.y, userPosition.y+5);
-//     ranZ = random(userPosition.z-10, userPosition.z+10);
-//
-//     this.swarm = new Container3D({
-//         x:ranX, y:ranY, z:ranZ
-//     });
-//     world.add(this.swarm);
-//
-//     this.butter = new Butterfly({
-//         x:ranX,y:ranY,z:ranZ});
-//     this.swarm.addChild(this.butter);
-//     console.log("added butter");
-//
-//     // for(var i=0; i<num; i++) {
-//     //     butterfly = new Butterfly(ranX,ranY,ranZ);
-//     //     butterflyArray.push(butterfly);
-//     //     this.swarm.addChild(butterfly);
-//     // }
-//
-//
-// }
