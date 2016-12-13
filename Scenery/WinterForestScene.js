@@ -20,20 +20,11 @@ function WinterForest(world, sound) {
 
     this.goalBubble = 0;
     this.goalObject = 0;
-    // this.goalBubbleArray = [];
-    // for (var i = 0; i < 3; i++) {
-    //     var bubble = new Bubble('weights', 'goal', 0, 1, 0, -11, -0.2, 7, 10, 1);
-    //     this.goalBubbleArray.push(bubble);
-    // }
     this.goalAdded = false;
     this.goalObjectAdded = false;
     this.currentGoalLevel = player.wish;
 
 
-    // this.goalObjectArray = [];
-    // for (var i = 0; i < 3; i++) {
-    //     this.goalObjectArray.push(new GoalObject(this.width, this.height));
-    // }
     this.hungerObjectArray = [];
     this.hungerBubble = 0;
     this.hungerObject = 0;
@@ -62,18 +53,43 @@ function WinterForest(world, sound) {
 
     this.snow = new MEMSnow(10000, 10000);
 
-    let snowman = new OBJ({
-        asset: 'snowmanObj',
-        mtl: 'snowmanMtl',
+    this.container = new Container3D({x:0, y:0, z:0});
+    world.add(this.container);
+
+    this.queen = new DAE({
         x: 0,
-        y: 0,
+        y: 1,
         z: 0,
-        // rotationX:180,
-        scaleX: 0.2,
-        scaleY: 0.2,
-        scaleZ: 0.2,
+        asset: 'queenModel',
+        scaleX:1,
+        scaleY:1,
+        scaleZ:1,
+        red: 0, green: 0, blue: 0
     });
-    // world.add(snowman);
+
+    this.queen.moveSpeed = 0.03;
+    this.queen.move = function(){
+        this.queen.setY(this.queen.getY() + this.queen.moveSpeed);
+        if (this.queen.getY() > 4 || this.queen.getY() < 1){
+            this.queen.moveSpeed *= -1;
+        }
+    };
+    this.container.addChild(this.queen);
+
+
+    this.king = new DAE({
+        x: 5,
+        y: 5,
+        z: 5,
+        asset: 'kingModel',
+        scaleX:3,
+        scaleY:3,
+        scaleZ:3,
+        red: 255, green: 255, blue: 255,
+        rotationZ:20
+    });
+    this.container.addChild(this.king);
+
 
     this.deadPineTreeArray = [];
     for (let x = 0; x < 150; x++) {
@@ -360,6 +376,9 @@ function WinterForest(world, sound) {
 
 
     this.display = function () {
+
+        this.container.spinY(1);
+        // this.queen.move();
 
         if ((millis() / 1000) % 125 == 0){
             this.sound.play();

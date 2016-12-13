@@ -6,6 +6,11 @@ var player;
 var game;
 var bubble;
 var sound;
+var menuDOM;
+var screenDOM;
+
+var menu;
+
 function preload() {
     sound = loadSound('images/winter.mp3');
 
@@ -22,21 +27,6 @@ function setup() {
     // game.displayMenu();
     //it'll always be 1 anyway lol
 
-
-    // var bottle = new DAE({
-    //     asset: "waterBottle"
-    // });
-    // world.add(bottle);
-
-
-    // world.add(bubble.container);
-
-    // bubble = new DAE({
-    //     x: -22.25, y: 0, z: 12.78,
-    //     asset: "waterBottle",
-    //     scaleX: 10, scaleY: 10, scaleZ: 10
-    // });
-    // world.add(bubble);
     player = new Player();
     scene = new WinterForest(world, sound);
     userInfo = new UserInfo(player);
@@ -44,14 +34,19 @@ function setup() {
 }
 
 function draw() {
+
     // if (mouseIsPressed || touchIsDown) {
     //     world.moveUserForward(0.1);
     //     world.add(singleTree);
     // }
 
+
     // if (game.gameOption == 1) {
+    //     menuDOM.setAttribute("visible", "false");
+    //     screenDOM.setAttribute("visible", "true");
         scene.display();
         player.updatePosition();
+    //
     // }
     // else if (game.gameOption == 2) {
 
