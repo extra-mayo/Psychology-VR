@@ -1,3 +1,6 @@
+/**
+ * Created by Zhi Jian Zheng on 12/13/2016.
+ */
 function Bubble(model, type, x, y, z, offSetX, offSetY, offSetZ, scaleSize, latency, rotateX, rotateY, rotateZ) {
     this.type = type;
     this.container = new Container3D({
