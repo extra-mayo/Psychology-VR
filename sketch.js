@@ -58,4 +58,12 @@ function draw() {
 
 }
 
-
+function keyPressed() {
+    if (keyCode === 75) {
+        // console.log(scene.currentGoalLevel);
+        scene.currentGoalLevel++;
+        player.wish = scene.currentGoalLevel;
+        console.log(player.wish);
+        userInfo.increaseWishCount(player.wish);
+    }
+}

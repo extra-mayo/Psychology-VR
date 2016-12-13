@@ -372,7 +372,7 @@ function WinterForest(world) {
             this.objectBubbleHit = true;
         }
         if (this.portalAdded && this.portal.checkPortalHit()) {
-            //TODO SOMETHING HERE
+
         }
 
 
@@ -408,3 +408,4 @@ function WinterForest(world) {
 
 
 }
+

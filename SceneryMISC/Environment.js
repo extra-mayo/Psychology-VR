@@ -128,7 +128,10 @@ function Portal(x, z){
         opacity: 0.3,
         scaleY: 2,
         transparent: true,
-        red: 0, green: 0, blue: 255
+        red: 0, green: 0, blue: 255,
+        clickFunction: function(){
+            window.open("https://i6.cims.nyu.edu/~tz650/interactive/Final/index.html");
+        }
     });
     this.portal.addChild(circleFront);
 
@@ -140,7 +143,10 @@ function Portal(x, z){
         scaleY: 2,
         rotationY: 180,
         transparent: true,
-        red: 0, green: 0, blue: 255
+        red: 0, green: 0, blue: 255,
+        clickFunction: function(){
+            window.open("https://i6.cims.nyu.edu/~tz650/interactive/Final/index.html");
+        }
     });
     this.portal.addChild(circleBack);
 
