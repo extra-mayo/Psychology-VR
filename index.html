@@ -66,7 +66,7 @@
 
 		<a-scene id="VRScene">
 	    <!--<a-scene id="VRScene" stats>-->
-			<!--<a-scene id="VRScene" fog="type: exponential; density: 0.1; color: #e6e7e8" stats>-->
+			<!--<a-scene id="VRScene" fog="type: exponential; density: 0.1; color: #e6e7e8">-->
 			<!--fog="type: exponential; density: 0.05; color: white"-->
 			<asset-item id="VRAssets">
 
@@ -84,6 +84,8 @@
 				<img src="images/TreeTexture/leafOne.png" id="treeLeaf">
 				<img src="images/stone_andesite_smooth.png" id="stone">
 				<img src="images/snowTexture.jpg" id="snow">
+
+                <img src="img/fitness.jpg" id="wish-pic">
 
 				<img src="images/stars2.jpg" id="sky">
 				<!--<img src="libraries/images/dot.png" id="dotTexture">-->
@@ -134,7 +136,7 @@
 			<!--<a-entity ground ></a-entity>-->
             <!--<a-camera id="camera"></a-camera>-->
             <!--<a-entity bmfont-text="text: Hello World;" scale="10 10 10" look-at="camera"></a-entity>-->
-
+            <a-entity geometry="primitive: plane; width: 1200; height: 600" material="src: #wish-pic; fog:false" position="-100 1000 -4000"></a-entity>
 		</a-scene>
 
 

@@ -5,8 +5,9 @@ var userInfo;
 var player;
 var game;
 var bubble;
+var sound;
 function preload() {
-    sound = loadSound('images/woosh.mp3');
+    sound = loadSound('images/winter.mp3');
 
 
 }
@@ -37,7 +38,7 @@ function setup() {
     // });
     // world.add(bubble);
     player = new Player();
-    scene = new WinterForest(world);
+    scene = new WinterForest(world, sound);
     userInfo = new UserInfo(player);
 
 }

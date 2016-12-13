@@ -3,8 +3,12 @@
  */
 // let sound;
 
-function WinterForest(world) {
-    // sound = loadSound('images/woosh.mp3');
+function WinterForest(world, sound) {
+    // this.sound = loadSound('images/winter.mp3');
+    // this.sound.play();
+
+    this.sound = sound;
+    this.sound.play();
 
     this.width = 100;
     this.height = 100;
@@ -356,6 +360,10 @@ function WinterForest(world) {
 
 
     this.display = function () {
+
+        if ((millis() / 1000) % 125 == 0){
+            this.sound.play();
+        }
         // console.log("made it");
         this.updateGoalStuff();
 
