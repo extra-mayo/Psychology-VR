@@ -1,12 +1,15 @@
-function Bubble(model, type, x, y, z, offSetX, offSetY, offSetZ, scaleSize, latency) {
+function Bubble(model, type, x, y, z, offSetX, offSetY, offSetZ, scaleSize, latency, rotateX, rotateY, rotateZ) {
     this.type = type;
     this.container = new Container3D({
         x:x, y:y, z:z,
         visible:true
     });
 
+
+    this.container.setPosition(random(10), 0, random(10));
+
     this.bubble = new Sphere({
-        x:0, y:0, z:0,
+        x:x, y:y, z:z,
         opacity:0.3,
         red:255, green:255, blue:255,
         radius: 1.5
@@ -16,7 +19,7 @@ function Bubble(model, type, x, y, z, offSetX, offSetY, offSetZ, scaleSize, late
         x:offSetX, y:offSetY, z:offSetZ,
         scaleX:scaleSize,
         scaleY:scaleSize,
-        scaleZ:scaleSize
+        scaleZ:scaleSize,
     });
 
     this.container.addChild(this.bubble);
@@ -34,7 +37,7 @@ function Bubble(model, type, x, y, z, offSetX, offSetY, offSetZ, scaleSize, late
         var distance = dist(userPosition.x, userPosition.z, this.container.getX(), this.container.getZ());
         // console.log(distance);
         // console.log(this.chaseStatus);
-        if(!this.chaseStatus && millis()/1000 > latency && distance <= 30){
+        if(!this.chaseStatus && millis()/1000 > latency && distance <= 20){
 
             this.chaseStatus = true;
             this.container.tag.setAttribute('visible', 'true');

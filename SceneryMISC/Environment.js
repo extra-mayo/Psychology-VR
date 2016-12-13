@@ -35,9 +35,6 @@ function deadPineTree(x, z, scaleY){
         asset: "deadTreeLowPoly",
         rotationY: random(180)
     });
-
-
-
 }
 
 //2DTree object works better with height = 5!
@@ -165,15 +162,59 @@ function GoalObject(x, z){
         asset: "weightBar",
     });
 
-    this.checkHit = function(){
+    this.checkGoalHit = function(){
         var userPos = world.getUserPosition();
         var distance = dist(this.x, this.z, userPos.x, userPos.z);
-        console.log(distance);
+        // console.log(distance);
         if (distance < 3){
             return 1;
         }
         return -1;
     }
+}
 
+function HungerObject(x, z) {
+    this.x = random(-x/2 + 20, x/2-20);
+    this.y = 0;
+    this.z = random(-z/2 + 20, z/2 - 20);
+    this.hunger = new DAE({
+        x: this.x, y: this.y, z: this.z,
+        asset: "food",
+        scaleX: 10, scaleY: 10, scaleZ: 10
+    });
 
+    this.removed = false;
+
+    this.checkHungerHit = function(){
+        var userPos = world.getUserPosition();
+        var distance = dist(this.x, this.z, userPos.x, userPos.z);
+        // console.log(distance);
+        if (distance < 3){
+            return 1;
+        }
+        return -1;
+    }
+}
+
+function ThirstObject(x, z) {
+    this.x = random(-x/2 + 20, x/2-20);
+    this.y = 0;
+    this.z = random(-z/2 + 20, z/2 - 20);
+    this.thirst = new DAE({
+        x: this.x - 22.26, y: this.y, z: this.z + 12.79,
+        asset: "waterBottle",
+        scaleX: 10, scaleY: 10, scaleZ: 10
+    });
+
+    this.removed = false;
+
+    this.checkThirstHit = function(){
+        var userPos = world.getUserPosition();
+        var distance = dist(this.x, this.z, userPos.x, userPos.z);
+        // console.log(distance);
+        if (distance < 3){
+            return 1;
+        }
+        return -1;
+    }
 }

@@ -25,8 +25,6 @@
 		<script language="javascript" type="text/javascript" src="libraries/aframe-particle-system-component.js"></script>
 
 
-        <!--<script language="javascript" type="text/javascript" src="libraries/aframe-ui-modal-component.js"></script>-->
-
         <script language="javascript" type="text/javascript" src="libraries/aframe-bmfont-text-component.js"></script>
 
 		<!-- Scenery-Related JS -->
@@ -40,6 +38,7 @@
 		<script language="javascript" type="text/javascript" src="InteractiveObjects/bubbles.js"></script>
         <script language="javascript" type="text/javascript" src="Player/UserStats.js"></script>
 		<script language="javascript" type="text/javascript" src="Player/Player.js"></script>
+		<script language="javascript" type="text/javascript" src="Player/Game.js"></script>
 
 		<!-- custom styles -->
 		<style> 
@@ -65,8 +64,8 @@
 	<!--<a-scene stats></a-scene>-->
 	<!-- container to hold our VR scene - make sure to give this element an ID of 'VRScene' -->
 
-
-	    <a-scene id="VRScene" stats>
+		<a-scene id="VRScene">
+	    <!--<a-scene id="VRScene" stats>-->
 			<!--<a-scene id="VRScene" fog="type: exponential; density: 0.1; color: #e6e7e8" stats>-->
 			<!--fog="type: exponential; density: 0.05; color: white"-->
 			<asset-item id="VRAssets">
@@ -85,16 +84,18 @@
 				<img src="images/TreeTexture/leafOne.png" id="treeLeaf">
 				<img src="images/stone_andesite_smooth.png" id="stone">
 				<img src="images/snowTexture.jpg" id="snow">
+
+				<img src="images/stars2.jpg" id="sky">
 				<!--<img src="libraries/images/dot.png" id="dotTexture">-->
 
-
+				<a-asset src="models/food/model.dae" id="food"></a-asset>
 				<a-asset src="models/king.dae" id="kingModel" /></a-asset>
 				<a-asset src="models/queen.dae" id="queenModel" /></a-asset>
 				<a-asset src="models/pawn.dae" id="pawnModel" /></a-asset>
 				<a-asset src="models/3Tree/model.dae" id="treeModel"></a-asset>
 				<a-asset src="models/deadPineTree/model.dae" id="deadPineTree" /></a-asset>
 				<a-asset src="models/weightBar/model.dae" id="weightBar"></a-asset>
-
+				<a-asset src="models/weights/model.dae" id="weights"></a-asset>
 
 				<a-asset src="models/2DTree/trees.dae" id="testTree" /></a-asset>
 				<a-asset src="models/Chicken/model.dae" id="chicken" /></a-asset>
@@ -106,7 +107,7 @@
 
 				<a-asset src="models/Portal/model.dae" id="portal"></a-asset>
 
-
+				<a-asset src="models/vending/model.dae" id="vending"></a-asset>
                 <a-asset src="models/waterBottle/model.dae" id="waterBottle"></a-asset>
 
 
@@ -120,7 +121,7 @@
 
 			</asset-item>
 
-			<a-sky id="sky" src="images/stars2.jpg"></a-sky>
+			<a-sky id="sky" material="src: #sky"></a-sky>
 
             <!--<a-entity collada-model="#deadPineTree" ></a-entity>-->
 			<!--<a-sky id="sky" color="#000000"></a-sky>-->

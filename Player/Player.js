@@ -9,9 +9,8 @@ function Player(){
     this.y = userPos.y;
     this.z = userPos.z;
 
-    this.hunger = 3;
-    this.thirst = 3;
-    this.tiredness = 3;
+    this.hunger = 0;
+    this.thirst = 0;
     this.wish = 0;
 
     // this.update() = function(){
@@ -33,14 +32,6 @@ function Player(){
         // this.updateUserStats();
 
     };
-
-    this.updateUserStats = function(){
-        //TODO FIX THIS!!
-        if ((int)(millis() / 1000) % 10 == 0){
-            this.hunger--;
-            console.log(this.hunger, millis()/1000);
-        }
-    }
 
 
 

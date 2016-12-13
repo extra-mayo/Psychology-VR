@@ -13,35 +13,78 @@ function UserInfo(player){
     //this.hungerHolder.setAttribute("position", "0.4, 0.38, -0.5");
     this.hungerHolder.setAttribute("scale", "0.1, 0.1, 0.1");
 
+    this.emptyHungerArray = [];
 
     <!-- DISPLAY Hunger Images-->
-    this.hungerOne = new Plane({
+    this.EmptyHungerOne = new Plane({
         x: -0.17, y: 0.205, z: -0.5,
         width: 0.03, height: 0.03,
-        asset: 'hungerImage',
-        transparent: true
+        asset: 'emptyHungerImage',
+        transparent: true,
+        visible: false
         // rotationX: -90, metalness: 0.25
     });
+    this.emptyHungerArray.push(this.EmptyHungerOne);
+    this.camera.appendChild(this.EmptyHungerOne.tag);
 
-    this.camera.appendChild(this.hungerOne.tag);
-
-    this.hungerTwo = new Plane({
+    this.EmptyHungerTwo = new Plane({
         x: -0.14, y: 0.205, z: -0.5,
         width: 0.03, height: 0.03,
-        asset: 'hungerImage',
-        transparent: true
+        asset: 'emptyHungerImage',
+        transparent: true,
+        visible: false
         // rotationX: -90, metalness: 0.25
     });
-    this.camera.appendChild(this.hungerTwo.tag);
+    this.camera.appendChild(this.EmptyHungerTwo.tag);
+    this.emptyHungerArray.push(this.EmptyHungerTwo);
 
-    this.hungerThree = new Plane({
+    this.EmptyHungerThree = new Plane({
         x: -0.11, y: 0.205, z: -0.5,
         width: 0.03, height: 0.03,
         asset: 'emptyHungerImage',
-        transparent: true
+        transparent: true,
+        visible: false
         // rotationX: -90, metalness: 0.25
     });
-    this.camera.appendChild(this.hungerThree.tag);
+    this.emptyHungerArray.push(this.EmptyHungerThree);
+
+    this.camera.appendChild(this.EmptyHungerThree.tag);
+
+    this.hungerFilledArray = [];
+    this.hunger1 = new Plane({
+        x: -0.17, y: 0.205, z: -0.5,
+        width: 0.03, height: 0.03,
+        asset: 'hungerImage',
+        transparent: true,
+        visible: true,
+        // rotationX: -90, metalness: 0.25
+    });
+
+    this.camera.appendChild(this.hunger1.tag);
+    this.hungerFilledArray.push(this.hunger1);
+
+    this.hunger2 = new Plane({
+        x: -0.14, y: 0.205, z: -0.5,
+        width: 0.03, height: 0.03,
+        asset: 'hungerImage',
+        transparent: true,
+        visible: true
+        // rotationX: -90, metalness: 0.25
+    });
+    this.camera.appendChild(this.hunger2.tag);
+    this.hungerFilledArray.push(this.hunger2);
+
+    this.hunger3 = new Plane({
+        x: -0.11, y: 0.205, z: -0.5,
+        width: 0.03, height: 0.03,
+        asset: 'hungerImage',
+        transparent: true,
+        // rotationX: -90, metalness: 0.25
+        visible: true
+    });
+    this.camera.appendChild(this.hunger3.tag);
+    this.hungerFilledArray.push(this.hunger3);
+
 
     this.thirstHolder = document.createElement("a-entity");
     this.thirstHolder.setAttribute("id", "thirst");
@@ -50,41 +93,77 @@ function UserInfo(player){
     //this.thirstHolder.setAttribute("position", "0.2, 0.38, -0.5");
     this.thirstHolder.setAttribute("scale", "0.1, 0.1, 0.1");
 
+
+    this.emptyThirstArray = [];
+
+    this.EmptyThirstOne = new Plane({
+        x: 0.18, y: 0.205, z: -0.5,
+        width: 0.028, height: 0.028,
+        asset: 'emptyThirstImage',
+        transparent: true,
+        visible: false
+    });
+    this.camera.appendChild(this.EmptyThirstOne.tag);
+    this.emptyThirstArray.push(this.EmptyThirstOne);
+
+    this.EmptyThirstTwo = new Plane({
+        x: 0.21, y: 0.205, z: -0.5,
+        width: 0.028, height: 0.028,
+        asset: 'emptyThirstImage',
+        transparent: true,
+        visible: false
+        // rotationX: -90, metalness: 0.25
+    });
+    this.camera.appendChild(this.EmptyThirstTwo.tag);
+    this.emptyThirstArray.push(this.EmptyThirstTwo);
+
+    this.EmptyThirstThree = new Plane({
+        x: 0.24, y: 0.205, z: -0.5,
+        width: 0.028, height: 0.028,
+        asset: 'emptyThirstImage',
+        transparent: true,
+        visible: false
+        // rotationX: -90, metalness: 0.25
+    });
+    this.camera.appendChild(this.EmptyThirstThree.tag);
+    this.emptyThirstArray.push(this.EmptyThirstThree);
+
+
+    this.thirstFilledArray = [];
     <!-- DISPLAY Thirst Images-->
     this.thirstOne = new Plane({
         x: 0.18, y: 0.205, z: -0.5,
         width: 0.028, height: 0.028,
         asset: 'thirstImage',
-        transparent: true
+        transparent: true,
+        visible: true,
         // rotationX: -90, metalness: 0.25
     });
     this.camera.appendChild(this.thirstOne.tag);
+    this.thirstFilledArray.push(this.thirstOne);
 
     this.thirstTwo = new Plane({
         x: 0.21, y: 0.205, z: -0.5,
         width: 0.028, height: 0.028,
         asset: 'thirstImage',
-        transparent: true
+        transparent: true,
+        visible: true,
         // rotationX: -90, metalness: 0.25
     });
     this.camera.appendChild(this.thirstTwo.tag);
+    this.thirstFilledArray.push(this.thirstTwo);
 
     this.thirstThree = new Plane({
         x: 0.24, y: 0.205, z: -0.5,
         width: 0.028, height: 0.028,
-        asset: 'emptyThirstImage',
-        transparent: true
+        asset: 'thirstImage',
+        transparent: true,
+        visible: true,
         // rotationX: -90, metalness: 0.25
     });
     this.camera.appendChild(this.thirstThree.tag);
+    this.thirstFilledArray.push(this.thirstThree);
 
-
-    this.sleepHolder = document.createElement("a-entity");
-    this.sleepHolder.setAttribute("id", "sleep");
-    this.sleepHolder.setAttribute("bmfont-text", "text: Sleep:");
-    this.sleepHolder.setAttribute("position", "-0.25, -0.2, -0.5");
-    this.sleepHolder.setAttribute("scale", "0.1, 0.1, 0.1");
-    this.sleepHolder.setAttribute("color", "255, 0, 0");
 
 
     this.wishHolder = document.createElement("a-entity");
@@ -151,12 +230,35 @@ function UserInfo(player){
 
     this.camera.appendChild(this.hungerHolder);
     this.camera.appendChild(this.thirstHolder);
-    this.camera.appendChild(this.sleepHolder);
+
     this.camera.appendChild(this.wishHolder);
 
     this.increaseWishCount = function(number){
         this.wish = player.wish;
         this.camera.appendChild(this.wishFilledArray[number-1].tag);
+    };
+
+    this.increaseThirstCount = function(number){
+        this.thirstFilledArray[number -1].tag.setAttribute("visible", "true");
+    };
+
+    this.increaseHungerCount = function(number){
+        this.hungerFilledArray[number - 1].tag.setAttribute("visible", "true");
+    };
+
+
+    this.removeHungerHearts = function(){
+        for (var i = 0; i < this.hungerFilledArray.length; i++){
+            this.hungerFilledArray[i].tag.setAttribute("visible", "false");
+            this.emptyHungerArray[i].tag.setAttribute("visible", "true");
+        }
+    };
+
+    this.removeThirstHearts = function (){
+        for (var i = 0; i < this.thirstFilledArray.length; i++){
+            this.thirstFilledArray[i].tag.setAttribute("visible", "false");
+            this.emptyThirstArray[i].tag.setAttribute("visible", "true");
+        }
     }
 
 
